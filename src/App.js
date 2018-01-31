@@ -49,6 +49,10 @@ class App extends Component {
       })
     })
   }
+  removeItem(itemId) {
+    const itemRef = firebase.database().ref(`/items/${itemId}`);
+    itemRef.remove();
+  }
   render() {
     return (
       <div className="App">
@@ -76,13 +80,15 @@ class App extends Component {
             </form>
           </section>
           <section className="display-item">
-            <div className="display-item">
+            <div className="wrapper">
               <ul>
                 {this.state.items.map((item) => {
                   return (
                     <li key={item.id}>
                       <h3>{item.title}</h3>
-                      <p>brought by: {item.user}</p>
+                      <p>brought by: {item.user}
+                        <button onClick={() => this.removeItem(item.id)}>Remove Item</button>                      
+                      </p>
                     </li>
                   )
                 })}
