@@ -7,12 +7,24 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <div className="wrapper">
+            <h1 className="App-title">Fun Food Friends</h1>
+          </div>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="container">
+          <section className="add-item">
+            <form action="">
+              <input type="text" name="username" placeholder="What's your name?" />
+              <input type="text" name="currentItem" placeholder="What are you bringing?" />
+              <button>Add Item</button>
+            </form>
+          </section>
+          <section className="display-item">
+            <div className="display-item">
+              <ul></ul>
+            </div>
+          </section>
+        </div>
       </div>
     );
   }
